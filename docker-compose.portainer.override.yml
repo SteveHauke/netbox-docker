@@ -2,7 +2,6 @@ services:
   netbox:
     ports:
     - 8080:8080
-    services:
     volumes:
     - ./netbox-config:/etc/netbox/config:z,ro
     - ./netbox-media-files:/opt/netbox/netbox/media:z,rw
