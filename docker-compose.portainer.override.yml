@@ -2,3 +2,33 @@ services:
   netbox:
     ports:
     - 8080:8080
+    volumes:
+      - netbox-config:/etc/netbox/config:z,ro
+      - netbox-media:/opt/netbox/netbox/media:rw
+      - netbox-reports:/opt/netbox/netbox/reports:rw
+      - netbox-scripts:/opt/netbox/netbox/scripts:rw
+  redis:
+    volumes:
+      - netbox-redis-data:/data
+  redis-cache:
+    volumes:
+      - netbox-redis-cache-data:/data
+  postgres:
+    volumes:
+      - netbox-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  netbox-config:
+    external: true
+  netbox-media:
+    external: true
+  netbox-reports:
+    external: true
+  netbox-scripts:
+    external: true
+  netbox-redis-data:
+    external: true
+  netbox-redis-cache-data:
+    external: true
+  netbox-postgres-data:
+    external: true
