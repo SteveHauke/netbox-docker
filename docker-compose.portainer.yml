@@ -10,8 +10,6 @@ services:
         condition: service_healthy
     env_file: env/netbox.env
     user: "unit:root"
-    ports:
-      - 8000:8080
     healthcheck:
       test: curl -f http://localhost:8080/login/ || exit 1
       start_period: 200s
