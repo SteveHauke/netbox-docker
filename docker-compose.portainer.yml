@@ -1,6 +1,6 @@
 services:
   netbox: &netbox
-    image: ${IMAGE-docker.io/netboxcommunity/netbox:latest}
+    image: ${IMAGE-docker.io/netboxcommunity/netbox:v4.0.7}
     depends_on:
       postgres:
         condition: service_healthy
